@@ -13,8 +13,9 @@
   unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
   font-style: italic;
   font-weight: 400;
-  /* 不做 size-adjust：楷体与雅黑的设计框实测一致（囗探针），
-     墨迹差异属笔画风格；边界对齐会被出框笔画带偏 */
+  /* 字身框对齐：囗(U+56D7) 框墨迹沿线性回归，size-adjust 114% 使
+     楷体与雅黑框高一致；垂直方向不做修正（详见 theme.css 注释） */
+  size-adjust: 114%;
 }
 
 em,
