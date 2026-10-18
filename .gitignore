@@ -3,5 +3,4 @@ preview-default-theme.css
 
 # 预览页的临时产物
 _*.png
-_t.html
-_c.html
+_*.html
