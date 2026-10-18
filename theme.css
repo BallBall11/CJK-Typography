@@ -33,14 +33,14 @@
      垂直方向不做修正：真实排版共享基线，字形相对基线的位置是
      轮廓固有的（GB 字表实测均值偏差仅 0.4px@16px）；孤立行盒的
      基线放置差异是行盒伪差，不修正。 */
-  size-adjust: 114%;
+  size-adjust: 116%;
 }
 
 em,
 .cm-em {
   font-family: "CJK-Em", var(--font-text);
   /* 楷体相对正文的垂直微调旋钮，按目测调整（当前 -0.06em） */
-  vertical-align: -0.06em;
+  vertical-align: -0.09em;
   /* 只换字体：字重、颜色、italic 仍由默认主题决定 */
 }
 

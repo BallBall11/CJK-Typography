@@ -15,14 +15,14 @@
   font-weight: 400;
   /* 字身框对齐：囗(U+56D7) 框墨迹沿线性回归，size-adjust 114% 使
      楷体与雅黑框高一致；垂直方向不做修正（详见 theme.css 注释） */
-  size-adjust: 114%;
+  size-adjust: 116%;
 }
 
 em,
 .cm-em {
   font-family: "CJK-Em", var(--font-text);
   /* 楷体设计框浮在基线上方，微降 0.06em 对齐正文字面 */
-  vertical-align: -0.06em;
+  vertical-align: -0.09em;
   /* 不设置 font-weight、font-style：完全继承 Obsidian 默认的 em 样式 */
 }
 
