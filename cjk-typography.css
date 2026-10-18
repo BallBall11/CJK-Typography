@@ -9,9 +9,7 @@
 /* ---------- 第一级：*文字*（<em>）→ 中文重楷体 ---------- */
 @font-face {
   font-family: "CJK-Em";
-  src: local("LXGW WenKai Screen"), local("霞鹜文楷屏幕阅读版"),
-       local("LXGW ZhenKai"), local("霞鹜臻楷"),
-       local("KaiTi"), local("楷体"), local("STKaiti"), local("Kaiti SC");
+  src: local("KaiTi"), local("楷体"), local("STKaiti"), local("Kaiti SC");
   unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
   font-style: italic;
   font-weight: 400;
@@ -54,6 +52,8 @@ strong em,
   unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
   font-style: normal;
   font-weight: 400;
+  /* 刻意只接管 CJK：西文留给默认等宽栈（Windows 上是 Consolas）。
+     中西文 1:2 的整字接管方案试过，西文字形读代码不如 Consolas，放弃。 */
 }
 
 /* 行内代码：阅读模式 + 编辑模式 */

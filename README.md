@@ -82,9 +82,13 @@ Obsidian 的默认粗体规则在版本之间变过：
 
 主题与片段都只写 `local()` 引用，不打包字体：装了就用，没装就往下回退，仓库体积不变。
 
-**强调（`CJK-Em`）**：LXGW WenKai Screen / 霞鹜文楷屏幕阅读版 → LXGW ZhenKai / 霞鹜臻楷 → KaiTi / 楷体 → STKaiti → Kaiti SC
+**强调（`CJK-Em`）**：KaiTi / 楷体 → STKaiti → Kaiti SC
+
+曾经把文楷系列（LXGW WenKai Screen、霞鹜臻楷等）排在链首，实测发现楷体风格与默认正文的字形对比不够明显，反而稀释了强调的辨识度，于是砍掉，只留楷体。
 
 **代码（`CJK-Code`）**：Sarasa Mono SC → Noto Sans Mono CJK SC → Maple Mono NF CN → Microsoft YaHei Mono → SimHei
+
+只接管中文，西文刻意留给默认等宽栈（Windows 上是 Consolas）。曾试过让 Sarasa / Noto Sans Mono CJK 这类中西文 1:2 字体整段接管、换取严格的 2:1 对齐，但实测系统自带的西文等宽（Consolas 0.55em、Cascadia 0.586em、Courier New 0.6em，均非 0.5em）意味着不整段接管就凑不出 2:1，而整段接管的西文字形读代码不如 Consolas 舒服——权衡后放弃对齐，保留可读性。
 
 换字体只需调整 `@font-face` 里 `local()` 的顺序。`local()` 用的是字体在系统中的**真实名称**，各平台命名不一（macOS 常见 `Kaiti SC`，Windows 常见 `楷体`），所以两套都列上。
 
