@@ -6,6 +6,8 @@
 
 仓库同时提供等价的 **CSS 片段** `cjk-typography.css`：不想安装主题（或想继续用别的主题）就退回单文件方案，见「安装 → 方式二」。
 
+![CJK-Typography](screenshot.png)
+
 ## 效果
 
 | Markdown | 渲染结果 | 与默认主题的差别 |
@@ -118,12 +120,26 @@ node tools/extract-default-css.mjs --asar <路径> --out <输出.css>
 - 编辑模式样式依赖 CodeMirror 6 的类名（`.cm-em`、`.cm-strong`、`.cm-inline-code`、`.HyperMD-codeblock`）。Obsidian 大版本若重命名这些类，需要同步调整。
 - 行内代码 `font-size` 不再由主题声明，完全跟随默认的 `--code-size`；若某个子主题改了这个变量，代码字号会跟着变。片段版仍显式声明了 `font-size: var(--font-smaller)`，两者当前取值相同。
 
+## 缩略图
+
+`screenshot.png` 是 1024×576（512×288 的 2× 版本，16:9），可直接用作社区主题库的缩略图。它由脚本生成，卡片内容只保留强调 / 粗体 / 行内代码三行，缩到 512 宽仍能看清：
+
+```bash
+node tools/extract-default-css.mjs   # 先有官方 app.css 作底
+node tools/make-screenshot.mjs       # 输出 screenshot.png
+```
+
+需要改文案或配色，直接改脚本里的卡片 HTML；换浏览器可用 `EDGE_PATH` / `CHROME_PATH` 指定可执行文件。
+
 ## 提交到社区主题库还需补的东西
 
-- 16:9 缩略图，推荐 512×288，命名 `screenshot.png`
+- ~~16:9 缩略图~~ —— 已有 `screenshot.png`，重跑 `tools/make-screenshot.mjs` 可再生成
+- ~~`LICENSE`~~ —— 已采用 MIT
 - `manifest.json` 里的 `author` 换成你自己的名字或 ID
-- 一份遵循主题审核规范的 `README.md`
+- 按主题审核规范再核对一遍 `README.md`
 
 ## 许可
 
-主题代码未指定许可。`preview-default-theme.css` 与 `app.css` 的版权归 Obsidian 所有，仅限本地对照使用。
+[MIT](LICENSE) © 2026 BallBall11
+
+例外：`preview-default-theme.css` 是从本机 Obsidian 安装中提取的 `app.css`，版权归 Obsidian 所有，仅限本地预览对照使用，不随仓库分发（已列入 `.gitignore`）。
