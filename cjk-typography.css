@@ -21,7 +21,8 @@
 em,
 .cm-em {
   font-family: "CJK-Em", var(--font-text);
-  /* 不设 vertical-align：逐字方差太大，全局偏移无意义（见 theme.css 注释） */
+  /* 楷体设计框浮在基线上方，微降 0.06em 对齐正文字面 */
+  vertical-align: -0.06em;
   /* 不设置 font-weight、font-style：完全继承 Obsidian 默认的 em 样式 */
 }
 
