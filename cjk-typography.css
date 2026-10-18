@@ -13,9 +13,12 @@
   unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
   font-style: italic;
   font-weight: 400;
-  /* 字身框对齐：囗(U+56D7) 框墨迹沿线性回归，size-adjust 114% 使
-     楷体与雅黑框高一致；垂直方向不做修正（详见 theme.css 注释） */
+  /* 字身框对齐：囗(U+56D7) 框墨迹沿线性回归，size-adjust 116% 使
+     楷体与雅黑框高一致。行内盒用 ascent/descent-override 钉回正文
+     量级，楷体不撑大行距（同 theme.css） */
   size-adjust: 116%;
+  ascent-override: 91%;
+  descent-override: 22%;
 }
 
 em,
