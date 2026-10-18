@@ -1,0 +1,4 @@
+# 仓库内统一使用 LF，避免 Windows 平台提交出 CRLF 差异
+* text=auto eol=lf
+
+*.png binary

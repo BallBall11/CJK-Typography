@@ -1,0 +1,88 @@
+/* ============================================================
+   CJK 中文排版适配 · Obsidian 默认主题
+   原则：西文完全走 Obsidian 默认配置，不手动指定任何西文字体；
+         只通过 unicode-range 为中文分流字体。
+   em 中文用楷体；em-strong 沿用默认粗体权重，去掉着重号。
+   行内代码与代码块分别覆盖阅读模式和编辑模式。
+   ============================================================ */
+
+/* ---------- 第一级：*文字*（<em>）→ 中文重楷体 ---------- */
+@font-face {
+  font-family: "CJK-Em";
+  src: local("LXGW WenKai Screen"), local("霞鹜文楷屏幕阅读版"),
+       local("LXGW ZhenKai"), local("霞鹜臻楷"),
+       local("KaiTi"), local("楷体"), local("STKaiti"), local("Kaiti SC");
+  unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+  font-style: italic;
+  font-weight: 400;
+}
+
+em,
+.cm-em {
+  font-family: "CJK-Em", var(--font-text);
+  /* 不设置 font-weight、font-style：完全继承 Obsidian 默认的 em 样式 */
+}
+
+/* ---------- 第二级：**文字**（<strong>）→ 沿用 Obsidian 默认粗体 ---------- */
+strong,
+.cm-strong {
+  /* 用 --bold-weight：1.5.x 与 1.13.x 都存在。
+     不要写 calc(var(--font-weight) + var(--bold-modifier))：
+     那两个变量只在较新版本存在，旧版本里会让 font-weight 变成无效值，
+     粗体退回 400（全库粗体消失）。 */
+  font-weight: var(--bold-weight);
+}
+
+/* ---------- 第三级：***文字***（<em><strong>）→ 默认粗体权重，无着重号 ---------- */
+em strong,
+strong em,
+.cm-em.cm-strong {
+  font-weight: var(--bold-weight);
+  /* 不指定 font-family：中文走默认字体栈，西文走默认 bold italic */
+  /* 不设置 text-emphasis：去掉下标附点，行距恢复正常 */
+}
+
+/* ============================================================
+   行内代码与代码块
+   ============================================================ */
+
+@font-face {
+  font-family: "CJK-Code";
+  src: local("Sarasa Mono SC"), local("Noto Sans Mono CJK SC"),
+       local("Maple Mono NF CN"), local("Microsoft YaHei Mono"),
+       local("SimHei");
+  unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* 行内代码：阅读模式 + 编辑模式 */
+.markdown-rendered :not(pre) > code,
+.cm-s-obsidian .cm-inline-code {
+  font-family: "CJK-Code", var(--font-monospace);
+  font-size: var(--font-smaller);
+  font-variant-ligatures: none;
+  /* 不设置 line-height / background / padding，保持默认样式 */
+}
+
+/* 代码块：阅读模式 + 编辑模式 */
+.markdown-rendered pre code,
+.cm-s-obsidian .HyperMD-codeblock {
+  font-family: "CJK-Code", var(--font-monospace);
+  font-size: var(--font-smaller);
+  tab-size: 4;
+  font-variant-ligatures: none;
+  /* 不设置 line-height，继承 Obsidian 默认 */
+}
+
+/* 行内代码与代码块内中和正文强调样式 */
+:is(.markdown-rendered :not(pre) > code,
+    .markdown-rendered pre code,
+    .cm-s-obsidian .cm-inline-code,
+    .cm-s-obsidian .HyperMD-codeblock) :is(em, strong) {
+  font-style: normal;
+  font-weight: 400;
+  font-family: inherit;
+  font-synthesis: none;
+  text-emphasis: none;
+}

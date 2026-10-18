@@ -1,0 +1,7 @@
+# app.css 是 Obsidian 的版权文件，从本机安装里临时取出用于预览对照，不随仓库分发
+preview-default-theme.css
+
+# 预览页的临时产物
+_*.png
+_t.html
+_c.html
