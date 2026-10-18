@@ -13,8 +13,8 @@
   unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
   font-style: italic;
   font-weight: 400;
-  /* 楷体同字号墨迹比默认字体矮约 12%，size-adjust 只放大中文字形 */
-  size-adjust: 113%;
+  /* 不做 size-adjust：楷体与雅黑的设计框实测一致（囗探针），
+     墨迹差异属笔画风格；边界对齐会被出框笔画带偏 */
 }
 
 em,
