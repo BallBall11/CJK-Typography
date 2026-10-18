@@ -37,6 +37,9 @@
 em,
 .cm-em {
   font-family: "CJK-Em", var(--font-text);
+  /* 楷体墨迹相对基线偏上（100px 下 asc 86 vs 雅黑 82），整体微降 0.04em
+     对齐正文字面；量级小于行框余量，不会撑大行高。 */
+  vertical-align: -0.04em;
   /* 只换字体：字重、颜色、italic 仍由默认主题决定 */
 }
 

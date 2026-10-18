@@ -73,7 +73,8 @@
   <div class="markdown-preview-sizer">
 
     <h2>强调 · *文字*</h2>
-    <p>这是一个<em>强调的中文短语</em>，和 <em>emphasis in Latin</em> 排在同一行里。</p>
+    <p>正文里偶尔需要<em>强调某个短语</em>，<em>Latin emphasis</em> 与它排在同一行互不干扰。</p>
+    <p>写笔记时常用斜体标出<em>书名和外来术语</em>，例如 <em>The Design of Everyday Things</em> 这类书名。</p>
     <p class="cjk-note">
       中文强调交给重楷体：笔画带书写感，长文里靠字面本身区分语气，不靠机械倾斜。
       西文仍是原生斜体，两种变体在同一行里各说各话，不会互相抢注意力。
@@ -81,7 +82,8 @@
     </p>
 
     <h2>粗体 · **文字**</h2>
-    <p>这一句里有<strong>加粗的中文短语</strong>，也有 <strong>bold in Latin</strong>。</p>
+    <p>需要<strong>加重语气的中文短语</strong>，与 <strong>bold in Latin</strong> 的处理方式完全相同。</p>
+    <p><strong>关键的结论要放在段首</strong>，英文笔记也一样：<strong>put the takeaway first</strong>。</p>
     <p class="cjk-note">
       字重完全交给默认主题的 <code>--bold-weight</code>（600）。中文从 400 抬到 600
       时字面骨架依旧清楚，不会糊成一团；加粗颜色沿袭 <code>--bold-color</code>，
@@ -89,14 +91,23 @@
     </p>
 
     <h2>粗斜体 · ***文字***</h2>
-    <p><em><strong>粗斜体的中文短语</strong></em>，以及<em>区内<strong>嵌套加粗</strong>收尾</em>。</p>
+    <p>语气最强的场合才用<em><strong>粗斜体</strong></em>，<em>区内<strong>嵌套加粗</strong></em>也不变形。</p>
+    <p>所谓<em><strong>视觉重心</strong></em>，指的是一行字墨迹的加权平均位置，英文里叫 <em><strong>optical center</strong></em>。</p>
     <p class="cjk-note">
       中文仍然走楷体字面，只把字重抬到默认粗体，不叠着重号。
       中文行距紧，着重号会在基线上下挤出多余空隙，一段里出现几处就足以毁掉整段的行节奏。
     </p>
 
+    <h2>引用中的嵌套</h2>
+    <blockquote><p><em>他常说：引用里的<strong>重点</strong>也不能丢</em>，字体不变形才算合格。</p></blockquote>
+    <p class="cjk-note">
+      引用块里的斜体套粗体是重灾区：字号、行高、缩进同时变化时最容易看出字面失衡。
+      这里的中文依旧走楷体字面，粗体来自默认字重，嵌套两层也不变形。
+    </p>
+
     <h2>行内代码</h2>
     <p>执行 <code>npm install --save 依赖</code> 之后，再看 <code>const 变量 = '中文';</code>。</p>
+    <p>行内版也照顾一下：<code>cd ~/Documents/笔记 目录</code> 与 <code>Latin mono</code> 混排不歪。</p>
     <p>代码里的强调会被中和：<code>"前缀 <em>变量名</em> <strong>常量</strong> 后缀"</code>。</p>
     <p class="cjk-note">
       中文、全角标点改用等宽中文字面，与西文按照同一格宽推进，注释和缩进不会错位，
@@ -109,6 +120,9 @@
   // 中文注释与 comment 混排
   return 参数 * 2; // 返回 结果
 }</code></pre>
+    <pre><code># 这是注释中的汉字，comment 也一样
+总数 = 100
+甲乙丙丁 = 一二三四五六七八九十</code></pre>
     <p class="cjk-note">
       中文注释、中文标识符与西文共用一套列宽，竖向对齐靠字体自身完成。
       代码里的强调也会被中和，<code>***</code> 之类的混排不会破坏等宽网格。

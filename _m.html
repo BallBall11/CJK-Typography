@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>measure</title>
+<link rel="stylesheet" href="preview-default-theme.css">
+<link rel="stylesheet" href="theme.css">
+<style>
+  /* 测量专用页：每行绝对定位，保证四行的行框像素级同位 */
+  html { height: auto !important; overflow: visible !important; }
+  body.theme-light {
+    contain: none !important; height: auto !important; overflow: visible !important; margin: 0;
+  }
+  .s { position: absolute; left: 24px; right: 24px; height: 32px; line-height: 32px; font-size: 16px; }
+</style></head>
+<body class="theme-light markdown-rendered">
+<div class="s" style="top:8px">正文内容与斜体测试防止汉字字符重叠</div>
+<div class="s" style="top:40px">正文内容与<em>斜体测试</em>防止汉字字符重叠</div>
+<div class="s" style="top:72px">正文内容与<strong>斜体测试</strong>防止汉字字符重叠</div>
+<div class="s" style="top:104px">正文内容与<em><strong>斜体测试</strong></em>防止汉字字符重叠</div>
+</body></html>
