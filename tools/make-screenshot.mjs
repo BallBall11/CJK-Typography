@@ -103,6 +103,8 @@ if (fs.existsSync(out)) fs.rmSync(out);
 const args = [
   "--headless=new",
   "--disable-gpu",
+  "--no-first-run",
+  "--no-default-browser-check",
   "--hide-scrollbars",
   "--force-device-scale-factor=2",
   `--window-size=${W},${H}`,
