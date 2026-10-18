@@ -60,7 +60,9 @@ const html = `<!doctype html>
 <link rel="stylesheet" href="${toUrl(defaultCss)}">
 <link rel="stylesheet" href="${toUrl(themeCss)}">
 <style>
-  /* 只负责这张卡片的版式；文字样式与配色全部来自 app.css + theme.css */
+  /* 只负责这张卡片的版式；文字样式与配色全部来自 app.css + theme.css。
+     注意：app.css 的 .markdown-rendered p 会注入 --p-spacing 段距，
+     这里用更高优先级的选择器把段距压实，避免内容超出 288px 被裁掉。 */
   html { height: auto !important; overflow: visible !important; }
   body.theme-light {
     contain: none !important; height: auto !important; overflow: visible !important;
@@ -68,18 +70,19 @@ const html = `<!doctype html>
   }
   .card {
     box-sizing: border-box; width: ${W}px; height: ${H}px;
-    padding: 24px 28px; overflow: hidden;
+    padding: 20px 26px; overflow: hidden;
     background: var(--background-primary); color: var(--text-normal);
   }
+  .card p { margin: 0; }
   .kicker {
-    margin: 0; font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+    margin: 0 0 6px; font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
     color: var(--text-muted);
   }
-  .card h1 { margin: 6px 0 2px; font-size: 21px; line-height: 1.2; letter-spacing: -.01em; }
-  .sub { margin: 0 0 12px; font-size: 11px; color: var(--text-muted); }
-  .rule { height: 1px; background: var(--background-modifier-border); margin: 0 0 8px; }
-  .row { margin: 0 0 6px; font-size: 13px; line-height: 1.55; }
-  .row b { font-size: 10px; letter-spacing: .04em; color: var(--text-muted); }
+  .card h1 { margin: 0 0 3px; font-size: 18px; line-height: 1.2; letter-spacing: -.01em; }
+  .sub { margin: 0 0 9px !important; font-size: 10.5px; color: var(--text-muted); }
+  .rule { height: 1px; background: var(--background-modifier-border); margin: 0 0 7px; }
+  .row { margin: 0 0 6px !important; font-size: 12px; line-height: 1.5; }
+  .row b { font-size: 9px; letter-spacing: .04em; color: var(--text-muted); }
 </style></head>
 <body class="theme-light">
   <div class="card markdown-rendered">
