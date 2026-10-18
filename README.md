@@ -86,6 +86,8 @@ Obsidian 的默认粗体规则在版本之间变过：
 
 曾经把文楷系列（LXGW WenKai Screen、霞鹜臻楷等）排在链首，实测发现楷体风格与默认正文的字形对比不够明显，反而稀释了强调的辨识度，于是砍掉，只留楷体。
 
+楷体与雅黑的墨迹度量逐字差异很大（GB2312 一级字表 3755 字逐字实测，字面总高差 −15～+32、重心差 −10.5～0 @100px），因此主题**不做全局垂直偏移**，`size-adjust: 113%` 只负责把平均字面高度对齐（收敛后平均差约 2%）。
+
 **代码（`CJK-Code`）**：Sarasa Mono SC → Noto Sans Mono CJK SC → Maple Mono NF CN → Microsoft YaHei Mono → SimHei
 
 只接管中文，西文刻意留给默认等宽栈（Windows 上是 Consolas）。曾试过让 Sarasa / Noto Sans Mono CJK 这类中西文 1:2 字体整段接管、换取严格的 2:1 对齐，但实测系统自带的西文等宽（Consolas 0.55em、Cascadia 0.586em、Courier New 0.6em，均非 0.5em）意味着不整段接管就凑不出 2:1，而整段接管的西文字形读代码不如 Consolas 舒服——权衡后放弃对齐，保留可读性。
