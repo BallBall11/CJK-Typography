@@ -24,8 +24,10 @@
 em,
 .cm-em {
   font-family: "CJK-Em", var(--font-text);
-  /* 楷体设计框浮在基线上方，微降 0.06em 对齐正文字面 */
+  /* 楷体相对正文的垂直微调旋钮，按目测调整（当前 -0.09em） */
   vertical-align: -0.09em;
+  /* 行内盒不参与行高计算，行距由正文 strut 决定 */
+  line-height: 0;
   /* 不设置 font-weight、font-style：完全继承 Obsidian 默认的 em 样式 */
 }
 

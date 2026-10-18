@@ -41,8 +41,11 @@
 em,
 .cm-em {
   font-family: "CJK-Em", var(--font-text);
-  /* 楷体相对正文的垂直微调旋钮，按目测调整（当前 -0.06em） */
+  /* 楷体相对正文的垂直微调旋钮，按目测调整（当前 -0.09em） */
   vertical-align: -0.09em;
+  /* 让楷体的行内盒不参与行高计算——行距完全由正文 strut 决定，
+     vertical-align 旋钮怎么调都不会引起不等距 */
+  line-height: 0;
   /* 只换字体：字重、颜色、italic 仍由默认主题决定 */
 }
 
